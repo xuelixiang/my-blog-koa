@@ -4,7 +4,7 @@ const isDev = process.env.NODE_ENV === 'development'
 module.exports = {
   db,
   SALT_WORK_FACTOR: 10, // 生成salt的迭代次数
-  TOKEN_SECRET: 'react-blog',
+  TOKEN_SECRET: 'my-blog-koa',
   TOKEN_EXPIRESIN: '720h', // token 有效期
   ENABLE_EMAIL_NOTICE: false, // 是否开启邮件通知功能 
   // 邮箱的 config 
