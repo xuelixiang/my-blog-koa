@@ -14,7 +14,7 @@
 - `webpack` 配置优化打包，对依赖进行拆分以减小打包后的文件体积
 - `cdn` 方式引入 `highlight.js`
 
-更多 [webpack-perf](https://github.com/gershonv/react-blog/tree/webpack-perf)
+更多 [webpack-perf](https://github.com/gershonv/my-blog-koa/tree/webpack-perf)
 
 ### 2019-04-25 添加邮箱、用户名登录
 
@@ -22,13 +22,13 @@
 - 个人信息：用户的相关信息均可修改
 - 邮件功能：**评论回复（绑定了邮箱的账户）如果有更新 都会自动通过邮件通知！**
 
-更多 [email-notice](https://github.com/gershonv/react-blog/tree/email-notice)
+更多 [email-notice](https://github.com/gershonv/my-blog-koa/tree/email-notice)
 
 ### 2019-02-01 构建后端项目
 
 - 构建后端项目 -`koa + koa-router + sequelize + jwt`
 
-更多 [server-chore](https://github.com/gershonv/react-blog/tree/server-chore)
+更多 [server-chore](https://github.com/gershonv/my-blog-koa/tree/server-chore)
 
 ### 2019-01-23 构建前端项目
 
@@ -36,7 +36,7 @@
   - `npm run eject`
   - `less + antd + redux + react-router + lazyload`...
 
-更多 [client-chore](https://github.com/gershonv/react-blog/tree/client-chore)
+更多 [client-chore](https://github.com/gershonv/my-blog-koa/tree/client-chore)
 
 ## 博客介绍
 
@@ -45,7 +45,7 @@
 - 分出了几个分支便于学习和查看开发记录，相信这个项目会让刚接触 react 的伙伴学到一些的
 
 - [博客地址](https://guodada.fun) - 联系我可以 email gershonv@163.com | QQ 434358603 | 博客关于页面留言~
-- [项目地址](https://github.com/gershonv/react-blog)
+- [项目地址](https://github.com/gershonv/my-blog-koa)
 - [预览地址](http://test.guodada.fun)
   - 用户名 admin/admin 最高权限，求小伙伴不要乱删数据，乱删数据其他伙伴会没什么数据看的。
   - 给最高权限是为了让大家看到博主的权限。体验博客完整的功能。
@@ -80,18 +80,18 @@
 
 为了方便查看开发记录笔者分了几个分支
 
-1. [client-chore](https://github.com/gershonv/react-blog/tree/client-chore): 记录前端项目的构建过程
+1. [client-chore](https://github.com/gershonv/my-blog-koa/tree/client-chore): 记录前端项目的构建过程
    1. 配置 react + antd + less + babel-plugins-import
    2. 配置 redux + redux-thunk + redux-logger (开发和生产环境)
    3. 配置 装饰器 + axios 封装 + 路由配置（主博客路由 和 admin 管理系统）
-2. [server-chore](https://github.com/gershonv/react-blog/tree/server-chore): 记录后端项目的构建过程
+2. [server-chore](https://github.com/gershonv/my-blog-koa/tree/server-chore): 记录后端项目的构建过程
    1. 配置 koa + koa-router + 中间件
    2. 项目结构划分（mvc 结构）
    3. 配置 sequelize 以及数据库的设计
    4. ...
-3. [client-markdown](https://github.com/gershonv/react-blog/tree/client-markdown): 配置 markdown 语法高亮
-4. [dev](https://github.com/gershonv/react-blog/tree/dev): 开发分支
-5. [email-notice](https://github.com/gershonv/react-blog/tree/email-notice): 邮件推送服务
+3. [client-markdown](https://github.com/gershonv/my-blog-koa/tree/client-markdown): 配置 markdown 语法高亮
+4. [dev](https://github.com/gershonv/my-blog-koa/tree/dev): 开发分支
+5. [email-notice](https://github.com/gershonv/my-blog-koa/tree/email-notice): 邮件推送服务
 
 ## 效果
 
@@ -122,9 +122,9 @@
 ### 前端
 
 ```bash
-git clone https://github.com/gershonv/react-blog.git
+git clone https://github.com/gershonv/my-blog-koa.git
 
-cd react-blog
+cd my-blog-koa
 
 npm i --registry=https://registry.npm.taobao.org
 
@@ -161,7 +161,7 @@ npm start
   - 错误的统一处理，如何优雅的处理
   - 项目结构如何搭建等等
 
-源码地址：[https://github.com/gershonv/react-blog](https://github.com/gershonv/react-blog)
+源码地址：[https://github.com/gershonv/my-blog-koa](https://github.com/gershonv/my-blog-koa)
 
 项目结构：
 ![](https://user-gold-cdn.xitu.io/2019/2/24/1691e4b68c2dfa95?w=470&h=913&f=png&s=51805)
@@ -170,7 +170,7 @@ npm start
 
 ![](https://user-gold-cdn.xitu.io/2019/2/26/169276665cdadc90?w=331&h=283&f=png&s=27314)
 
-[项目地址](https://github.com/gershonv/react-blog)
+[项目地址](https://github.com/gershonv/my-blog-koa)
 
 模块设计
 

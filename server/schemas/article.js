@@ -7,14 +7,22 @@ const create = Joi.object().keys({
   content: Joi.string(),
   categories: Joi.array(),
   tags: Joi.array()
+    .required()
+    .error(new Error('标签不能为空')),
 })
 
 const update = Joi.object().keys({
-  articleId: Joi.number(),
-  title: Joi.string(),
+  articleId: Joi.number()
+    .required()
+    .error(new Error('文章id不能为空')),
+  title: Joi.string()
+    .required()
+    .error(new Error('标题不能为空')),
   content: Joi.string(),
   categories: Joi.array(),
-  tags: Joi.array(),
+  tags: Joi.array()
+    .required()
+    .error(new Error('标签不能为空')),
   showOrder: Joi.number()
 })
 
