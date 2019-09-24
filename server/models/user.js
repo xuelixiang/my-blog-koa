@@ -45,5 +45,10 @@ module.exports = (sequelize, dataTypes) => {
     timestamps: true,
   });
 
+  User.associate = models => {
+    User.hasMany(models.comment);
+    User.hasMany(models.reply);
+  };
+
   return User;
 };

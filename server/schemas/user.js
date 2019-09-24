@@ -1,6 +1,6 @@
 const Joi = require('joi')
 
-const regiester = Joi.object().keys({
+const register = Joi.object().keys({
   username: Joi.string()
     .alphanum()
     .required()
@@ -41,7 +41,7 @@ const updateUser = type => {
 }
 
 module.exports = {
-  regiester,
+  register,
   login,
   updateUser
 }

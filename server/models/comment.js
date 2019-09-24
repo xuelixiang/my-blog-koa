@@ -1,19 +1,15 @@
 const moment = require('moment');
-
+// 评论表
 module.exports = (sequelize, dataTypes) => {
-  const Article = sequelize.define('article', {
+  const Comment = sequelize.define('comment', {
     id: {
       type: dataTypes.INTEGER(11),
       primaryKey: true,
       autoIncrement: true,
     },
-    title: {
-      type: dataTypes.STRING(255),
-      allowNull: false,
-      unique: true,
-    },
     content: {
       type: dataTypes.TEXT,
+      allowNull: false,
     },
     createdAt: {
       type: dataTypes.DATE,
@@ -29,20 +25,31 @@ module.exports = (sequelize, dataTypes) => {
         return moment(this.getDataValue('updatedAt')).format('YYYY-MM-DD HH:mm:ss');
       },
     },
-    showOrder: {
-      type: dataTypes.INTEGER(11),
-      defaultValue: 0,
-    },
-  },
-  {
-    timestamps: true,
+  }, {
+    timestamp: true,
   });
 
-  Article.associate = models => {
-    Article.hasMany(models.tag);
-    Article.hasMany(models.comment);
-    Article.hasMany(models.reply);
+
+  Comment.associate = models => {
+    Comment.belongsTo(models.article, {
+      as: 'article',
+      foreignKey: 'articleId',
+      targetKey: 'id',
+      constraints: false,
+    });
+    Comment.belongsTo(models.user, {
+      foreignKey: 'userId',
+      targetKey: 'id',
+      constraints: false,
+    });
+    Comment.hasMany(models.reply);
+    // Comment.hasMany(models.reply, {
+    //   foreignKey: 'commentId',
+    //   targetKey: 'id',
+    //   constraints: false,
+    // });
   };
 
-  return Article;
-};
+  return Comment;
+
+}

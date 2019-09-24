@@ -1,19 +1,15 @@
 const moment = require('moment');
-
+// 回复表
 module.exports = (sequelize, dataTypes) => {
-  const Article = sequelize.define('article', {
+  const Reply = sequelize.define('reply', {
     id: {
       type: dataTypes.INTEGER(11),
       primaryKey: true,
       autoIncrement: true,
     },
-    title: {
-      type: dataTypes.STRING(255),
-      allowNull: false,
-      unique: true,
-    },
     content: {
       type: dataTypes.TEXT,
+      allowNull: false,
     },
     createdAt: {
       type: dataTypes.DATE,
@@ -29,20 +25,15 @@ module.exports = (sequelize, dataTypes) => {
         return moment(this.getDataValue('updatedAt')).format('YYYY-MM-DD HH:mm:ss');
       },
     },
-    showOrder: {
-      type: dataTypes.INTEGER(11),
-      defaultValue: 0,
-    },
-  },
-  {
-    timestamps: true,
+  }, {
+    timestamp: true,
   });
 
-  Article.associate = models => {
-    Article.hasMany(models.tag);
-    Article.hasMany(models.comment);
-    Article.hasMany(models.reply);
-  };
+  Reply.associate = models => {
+    Reply.belongsTo(models.user);
+    Reply.belongsTo(models.article);
+    Reply.belongsTo(models.comment);
+  }
 
-  return Article;
-};
+  return Reply;
+}

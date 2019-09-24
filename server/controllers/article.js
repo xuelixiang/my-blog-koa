@@ -5,6 +5,8 @@ const {
   user: UserModel,
   article: ArticleModel,
   tag: TagModel,
+  comment: CommentModel,
+  reply: ReplyModel,
   sequelize,
 } = require('../models/index');
 
@@ -39,7 +41,7 @@ module.exports = {
     }
   },
 
-  // 创建文章
+  // 更新文章
   async update(ctx) {
     const { title, content, tags, articleId, showOrder } = ctx.request.body;
     console.log('create::', title, content, tags, articleId, showOrder);
@@ -104,6 +106,20 @@ module.exports = {
         model: TagModel,
         attributes: ['name'],
         where: tagFilter,
+      }, {
+        model: CommentModel,
+        attributes: ['content'],
+        include: [{
+          model: UserModel,
+          attributes: ['username'],
+        }, {
+          model: ReplyModel,
+          attributes: ['content'],
+          include: [{
+            model: UserModel,
+            attributes: ['username'],
+          }]
+        }]
       }],
       offset,
       limit,
@@ -118,9 +134,17 @@ module.exports = {
     const id = ctx.params.id;
     const data = await ArticleModel.findOne({
       where: { id },
-      include: [
-        { model: TagModel, attributes: ['name'] },
-      ],
+      include: [{
+        model: TagModel, attributes: ['name']
+      }, {
+        model: CommentModel, attributes: ['content'], include: [{
+          model: UserModel, attributes: ['username']
+        }, {
+          model: ReplyModel, attributes: ['content'], include: [{
+            model: UserModel, attributes: ['username']
+          }],
+        }]
+      }],
       row: true,
     });
     ctx.body = { code: 200, data };
@@ -129,6 +153,8 @@ module.exports = {
   // 删除文章
   async delete(ctx) {
     const { id: articleId } = ctx.query;
+    await ReplyModel.destroy({ where: { articleId } });
+    await CommentModel.destroy({ where: { articleId } });
     await TagModel.destroy({ where: { articleId } });
     await ArticleModel.destroy({ where: { id: articleId } });
     ctx.body = { code: 200, message: '删除成功' };
