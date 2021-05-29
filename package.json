@@ -126,6 +126,6 @@
     "redux-devtools-extension": "^2.13.7",
     "redux-logger": "^3.0.6",
     "webpack-bundle-analyzer": "^3.3.2",
-    "ws": "^7.1.2"
+    "ws": "^7.4.6"
   }
 }
